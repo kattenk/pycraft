@@ -264,7 +264,7 @@ class Mesh:
         return mesh_data
     
     def __eq__(self, other):
-        """One Vec3 is equal to another if all the components are equal."""
+        """One Mesh is equal to another if the data is the same."""
         return isinstance(other, Mesh) and self.data == other.data
 
 class TextureSet:
