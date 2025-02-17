@@ -9,6 +9,11 @@ See [Installation](#Installation) for how to get this running.
 
 I started out on this project really wanting to make it as well-written as possible for my friend. but I basically gave up once I saw how laggy the noise-sampling for the world generation was, I managed to improve the lag significantly by offloading the world generation to another Python process using `multiprocessing`, and it doesn't visibly lag spike for me anymore, but the performance is still bad, I haven't tested on a laptop but I imagine it's _really_ bad.. anyway, enjoy this half-finished, half-documented codebase!
 
+> IMPORTANT NOTE:
+> Just for anyone who is reading this that wants to make a voxel game like this:
+> you really shouldn't be doing noise-sampling on the CPU-side, you could probably easily do it on the GPU
+> using some kind of shader (which is what I should have done) then you would have good performance.
+
 ## Good parts
 - Collision system (`pycraft/physics.py`)
   - I think most voxel games/MC clones over-complicate their player-world collision. Pycraft has a very nice and simple implementation of SAT based AABB-world collision that allows the player to smoothly collide with and slide along walls. I think my code is pretty intuitive for newcomers to this type of collision system, I even put in some ASCII art :D
